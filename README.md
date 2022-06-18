@@ -15,9 +15,9 @@ send a POST request to https://u.gosh.ga/api/create with a JSON body like this:
 ```
 
 **api methods** --\
-`GET ` - https://u.gosh.ga/api/[slug] - return the data for given slug.\
-`POST` - https://u.gosh.ga/api/create - create a new slug data.\
-`GET ` - https://u.gosh.ga/[slug] - redirects to target_url for given slug.
+`GET` - `https://u.gosh.ga/api/[slug]` - return the data for given slug.\
+`POST` - `https://u.gosh.ga/api/create` - create a new slug data.\
+`GET` - `https://u.gosh.ga/[slug]` - redirects to target_url for given slug.
 
 **example** --\
 https://u.gosh.ga/ashish redirects to https://github.com/asheeeshh i.e. my github profile!
