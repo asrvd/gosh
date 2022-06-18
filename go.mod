@@ -1,4 +1,4 @@
-module github.com/asheeeshh/gosh
+module gosh
 
 go 1.17
 
