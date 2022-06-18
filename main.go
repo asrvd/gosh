@@ -47,13 +47,13 @@ func NewHandler(db *gorm.DB) http.Handler {
 	r.HandleFunc("/api", handleIndex).Methods(http.MethodGet)
 	r.HandleFunc("/api/seed", h.seedDatabase).Methods(http.MethodGet)
 	r.HandleFunc("/api/get/{slug}", h.getTarget).Methods(http.MethodGet)
-	r.HandleFunc("/api/put", h.putTarget).Methods(http.MethodPost)
+	r.HandleFunc("/api/create", h.putTarget).Methods(http.MethodPost)
 	r.HandleFunc("/{slug}", h.redirectToTarget).Methods(http.MethodGet)
 	return r
 }
 
 func handleIndex(w http.ResponseWriter, r *http.Request) {
-	io.WriteString(w, `to get started send a post request to https://u.gosh.ga/api/put/ with json body like this -- {"slug":"my_unique_slug", "target_url":"https://foo-bar.com/"}`)
+	io.WriteString(w, `to get started send a post request to https://u.gosh.ga/api/create/ with json body like this -- {"slug":"my_unique_slug", "target_url":"https://foo-bar.com/"}`)
 }
 
 func (h *Handler) seedDatabase(w http.ResponseWriter, r *http.Request) {

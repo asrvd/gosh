@@ -5,7 +5,7 @@ __packages used__ --\
 [gorm.io/gorm](https://gorm.io/) & [gorilla/mux](https://github.com/gorilla/mux/)
 
 __get started__ --\
-send a POST request to https://u.gosh.ga/api/put with a JSON body like this:
+send a POST request to https://u.gosh.ga/api/create with a JSON body like this:
 ```json
 {
     "slug":"my_unique_slug",
