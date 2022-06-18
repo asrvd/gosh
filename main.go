@@ -3,7 +3,6 @@ package main
 import (
 	"encoding/json"
 	"github.com/gorilla/mux"
-	"github.com/joho/godotenv"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	"io"
@@ -24,11 +23,6 @@ type Target struct {
 }
 
 func main() {
-	// Load environment variables from file.
-	if err := godotenv.Load(); err != nil {
-		log.Fatalf("failed to load environment variables: %v", err)
-	}
-
 	// Connect to PlanetScale database using DSN environment variable.
 	db, err := gorm.Open(mysql.Open(os.Getenv("DSN")), &gorm.Config{
 		DisableForeignKeyConstraintWhenMigrating: true,
@@ -51,7 +45,7 @@ func NewHandler(db *gorm.DB) http.Handler {
 	h := &Handler{db: db}
 	r := mux.NewRouter()
 	r.HandleFunc("/", handleIndex).Methods(http.MethodGet)
-	r.HandleFunc("/seed", h.seedDatabase).Methods(http.MethodGet)
+	r.HandleFunc("/api/seed", h.seedDatabase).Methods(http.MethodGet)
 	r.HandleFunc("/api/get/{slug}", h.getTarget).Methods(http.MethodGet)
 	r.HandleFunc("/api/put", h.putTarget).Methods(http.MethodPost)
 	r.HandleFunc("/{slug}", h.redirectToTarget).Methods(http.MethodGet)
