@@ -53,7 +53,7 @@ func NewHandler(db *gorm.DB) http.Handler {
 }
 
 func handleIndex(w http.ResponseWriter, r *http.Request) {
-	io.WriteString(w, `to get started send a post request to https://u.gosh.ga/api/put/ with json body like this --\n{"slug":"my_unique_slug", "target_url":"https://foo-bar.com/"}`)
+	io.WriteString(w, `to get started send a post request to https://u.gosh.ga/api/put/ with json body like this -- {"slug":"my_unique_slug", "target_url":"https://foo-bar.com/"}`)
 }
 
 func (h *Handler) seedDatabase(w http.ResponseWriter, r *http.Request) {
@@ -82,7 +82,7 @@ func (h *Handler) checkForSlug(slug string) bool {
 }
 
 func validateSlug(slug string) bool {
-	return strings.TrimSpace(slug) != "" && strings.TrimSpace(slug) != "api"
+	return strings.TrimSpace(slug) != "" && strings.TrimSpace(slug) != "api" 
 }
 
 func validateURL(targetURL string) bool {
